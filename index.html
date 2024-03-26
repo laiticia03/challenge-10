@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge 10</title>
+</head>
+<body>
+    <p>Write a function that takes an array of numbers and returns the average of all the even numbers. Use the filter() and reduce() array methods in your implementation.</p>
+
+    <script>
+
+        function averageEvenNumber(arr){
+          return arr.filter(num => num % 2 ==0)
+          .reduce((total,num)=>total+num)/arr.filter(num => num % 2 ==0).length;
+
+        }
+        console.log(averageEvenNumber([1,2,3,4,5,6,7,8,9]));
+    </script>
+
+    <p>Write a function that takes an array of words and returns the longest word. Use the reduce() array method in your implementation.</p>
+    <p>the is the words liste that i use and the inser it in the console 
+        let words=["goko","lit","longest","word","however","nevertheless"]
+    </p>
+
+     <script>
+        function LongestWord(arr){
+            return arr.reduce((longest,word)=>{
+                 return word.length > longest.length ? word : longest;
+            },"");
+        }
+         let words=["goko","lit","longest","word","however","nevertheless"];
+         console.log(LongestWord(words));
+      </script>
+
+      <p>Write a function that takes an array of objects representing books, with each object containing properties such as title, author, and pages. The function should return the average number of pages across all the books. Use the map() and reduce() array methods in your implementation.</p>
+      <script>
+
+        function averagePage(books){
+            const pageCounts= books.map(book=>book.pages);
+            const totalPages=pageCounts.reduce((sum,count)=> sum + count);
+            const totalBooks=books.length;
+            return totalPages/totalBooks;
+        }
+        const Books=[
+            {title:"Book 1",author:"author 1",pages:200},
+            {title:"Book 2",author:"author 1",pages:300},
+            {title:"Book 3",author:"author 1",pages:500},
+            {title:"Book 4",author:"author 1",pages:400},
+            {title:"Book 5",author:"author 1",pages:600}
+        ]
+       console.log(averagePage(Books));
+      </script>
+
+      <p>Write a function that takes an array of strings and returns an object containing the frequency of each string. For example, if the input is ["hello", "world", "hello"], the output should be { hello: 2, world: 1 }. Use the reduce() array method in your implementation.</p>
+       <script>
+         function frequency(strings) {
+           return strings.reduce((counts, str) => {
+           counts[str] = (counts[str] || 0) + 1;
+           return counts;
+           }, {});
+         }
+         const strings=["hello","world","hello"]
+         console.log(frequency(strings));
+       </script>
+       <p>Write a function that takes an array of objects representing people, with each object containing properties such as name, age, and city. The function should return an object containing the count of people by city. For example, if the input is [{ name: "Alice", age: 30, city: "New York" }, { name: "Bob", age: 40, city: "Chicago" }, { name: "Charlie", age: 50, city: "New York" }], the output should be { "New York": 2, "Chicago": 1 }. Use the reduce() array method in your implementation</p>
+       <script>
+         function peopleByCity(people) {
+           return people.reduce((counts, person) => {
+           counts[person.city] = (counts[person.city] || 0) + 1;
+           return counts;
+           }, {});
+         }
+
+         const people = [
+           {name: "Alice", age: 30, city: "New York"},
+           {name: "Bob", age: 40, city: "Chicago"},
+           {name: "Charlie", age: 50, city: "New York"}
+         ];
+
+         console.log(peopleByCity(people))
+       </script>
+</body>
+</html>
